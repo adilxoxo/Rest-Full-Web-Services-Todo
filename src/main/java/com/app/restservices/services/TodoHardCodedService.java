@@ -12,10 +12,11 @@ import com.app.restservices.beans.Todo;
 public class TodoHardCodedService {
 	
 	private static List<Todo> todoList = new ArrayList<Todo>();
-	
+	static int idCounter = 0;
 	static {
-		for(int i = 1;i<=10;i++){
+		for(int i = 1;i<=4;i++){
 			todoList.add(new Todo(i,"adil.sheikh "+i,"Description "+i,new Date(),false));
+			idCounter = i;
 		}
 	}
 	
@@ -39,5 +40,16 @@ public class TodoHardCodedService {
 			}
 		}
 		return null;
+	}
+	
+	public Todo saveTodo(Todo todo){
+		if(todo.getId() == -1 || todo.getId() == 0){
+			todo.setId(++idCounter);
+			todoList.add(todo);
+		}else{
+			deleteById(todo.getId());
+			todoList.add(todo);
+		}
+		return todo;
 	}
 }
