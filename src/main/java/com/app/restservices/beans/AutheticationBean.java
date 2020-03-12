@@ -1,9 +1,9 @@
 package com.app.restservices.beans;
 
-public class HelloWorldBean {
+public class AutheticationBean {
 	private String msg;
 	
-	public HelloWorldBean(String msg) {
+	public AutheticationBean(String msg) {
 		// TODO Auto-generated constructor stub
 		this.msg = msg;
 	}
